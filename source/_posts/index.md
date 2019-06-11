@@ -1,5 +1,5 @@
 ---
-title: index
+title: 所思所想
 toc: true
 date: 2019-06-11 14:49:41
 tags:

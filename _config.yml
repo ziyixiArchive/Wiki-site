@@ -13,8 +13,8 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://wiki.ziyixi.science
-root: /
+url: https://ziyixi.github.io/Wiki-site
+root: /Wiki-site/
 permalink: wiki/:title/
 permalink_defaults:
 
@@ -135,5 +135,5 @@ theme: Wikitten
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: github.com/ziyixi/Wiki-site.git
+  repository: https://github.com/ziyixi/Wiki-site
   branch: gh-pages
