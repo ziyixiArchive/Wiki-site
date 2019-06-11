@@ -3,11 +3,11 @@
   <title>Ziyi Xi&#39;s Wiki</title>
   
   
-  <link href="/Wiki-site/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
-  <link href="https://ziyixi.github.io/Wiki-site/"/>
+  <link href="wiki.ziyixi.science/"/>
   <updated>2019-06-11T20:16:49.485Z</updated>
-  <id>https://ziyixi.github.io/Wiki-site/</id>
+  <id>wiki.ziyixi.science/</id>
   
   <author>
     <name>Ziyi Xi</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>所思所想</title>
-    <link href="https://ziyixi.github.io/Wiki-site/wiki/index/"/>
-    <id>https://ziyixi.github.io/Wiki-site/wiki/index/</id>
+    <link href="wiki.ziyixi.science/wiki/index/"/>
+    <id>wiki.ziyixi.science/wiki/index/</id>
     <published>2019-06-11T18:49:41.000Z</published>
     <updated>2019-06-11T20:16:49.485Z</updated>
     
