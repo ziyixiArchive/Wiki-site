@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="wiki.ziyixi.science/"/>
-  <updated>2019-06-13T20:17:44.196Z</updated>
+  <updated>2019-06-13T21:53:00.326Z</updated>
   <id>wiki.ziyixi.science/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>correct_cea_orientation</title>
+    <link href="wiki.ziyixi.science/wiki/correct-cea-orientation/"/>
+    <id>wiki.ziyixi.science/wiki/correct-cea-orientation/</id>
+    <published>2019-06-13T21:00:07.000Z</published>
+    <updated>2019-06-13T21:53:00.326Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="overview">Overview</h2><p>The cea data has mis-orientated before 09/2013. We have the <a href="https://wiki.ziyixi.science/static/info/cmpaz_segment.txt">document</a> of how these stations are mis-orientated. (From Prof. Kai Tao and by Prof. Fenglin Niu) Dr. Chen has some data that have been processed before. So I'd like to compare the cmpaz of her processed data and the document mentioned above.</p><h2 id="result">Result</h2><p>The data from the document has the form</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#NET|STA|NO.EVENT|MEAN|STD|MEDIAN|MAD|STARTTIME|ENDTIME</span><br></pre></td></tr></table></figure><h3 id="ah.bas">AH.BAS</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AH|BAS|130|8.46|10.14|10.23|4.50|2008-03-11T14:37:00Z|2010-04-11T09:40:00Z</span><br></pre></td></tr></table></figure><p>cmpaz = 1.000000e+01</p><h3 id="ah.beb">AH.BEB</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AH|BEB|113|-4.82|20.58|-7.31|8.67|2007-10-02T03:43:00Z|2011-01-13T16:16:00Z</span><br></pre></td></tr></table></figure><p>cmpaz = -7.000000e+00</p><h3 id="ah.dyn">AH.DYN</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AH|DYN|101|66.71|6.26|66.86|3.83|2007-08-27T17:11:00Z|2008-11-03T19:21:00Z</span><br></pre></td></tr></table></figure><p>cmpaz = 6.500000e+01</p><h3 id="ah.fzl">AH.FZL</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#NET=AH,STA=FZL,MINCC=0.80,XYFILE=AH.FZL.XY</span><br><span class="line">#NET|STA|NO.EVENT|MEAN|STD|MEDIAN|MAD|STARTTIME|ENDTIME</span><br><span class="line">AH|FZL|3|-39.87|38.49|-60.75|3.94|2007-08-08T17:04:00Z|2007-08-15T20:22:00Z</span><br><span class="line">AH|FZL|18|-20.44|29.88|-30.98|16.20|2007-09-12T11:10:00Z|2008-03-26T20:06:00Z</span><br><span class="line">AH|FZL|3|3.09|87.01|14.27|103.34|2008-04-02T14:36:00Z|2008-04-10T04:29:00Z</span><br><span class="line">AH|FZL|1|3.69|NA|3.69|0.00|2008-04-29T19:10:00Z|2008-04-29T19:10:00Z</span><br><span class="line">AH|FZL|327|3.04|11.37|1.71|7.47|2008-05-02T01:33:00Z|2013-09-01T11:52:00Z</span><br><span class="line">AH|FZL|0|NA|NA|NA|NA|NA|2013-09-01T11:52:00Z</span><br><span class="line">AH|FZL||||||2013-09-01T11:52:00Z|NULL</span><br></pre></td></tr></table></figure><p>cmpaz = -1.000000e+00</p><p>Here we don't have the data of the for the event 200804161919A.</p><h3 id="ah.hbe">AH.HBE</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AH|HBE|64|13.63|5.46|13.70|3.91|2007-08-01T17:08:00Z|2008-06-10T04:13:00Z</span><br></pre></td></tr></table></figure><h3 id="ah.hef">AH.HEF</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AH|HEF|58|-9.22|5.11|-9.29|3.71|2007-10-31T13:44:00Z|2010-02-01T22:28:00Z</span><br></pre></td></tr></table></figure><p>cmpaz = -9.000000e+00</p><h3 id="ah.hsh">AH.HSH</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AH|HSH|108|-183.73|12.04|-180.53|5.63|2007-09-12T23:49:00Z|2010-05-27T17:14:00Z</span><br></pre></td></tr></table></figure><p>cmpaz = -1.790000e+02</p><h3 id="ah.hus">AH.HUS</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AH|HUS|59|-4.29|4.56|-4.26|2.56|2007-08-01T17:08:00Z|2008-07-06T01:00:00Z</span><br></pre></td></tr></table></figure><p>cmpaz = 0.000000e+00</p><h3 id="ah.jza">AH.JZA</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AH|JZA|96|0.13|16.51|2.94|9.54|2007-08-08T17:04:00Z|2010-03-05T16:07:00Z</span><br></pre></td></tr></table></figure><p>cmpaz = 1.000000e+00</p><h2 id="conclusion">Conclusion</h2><p>It seems the mis-orientation data that Dr. Chen has used is slightly different from Dr. Tao has used. But they are similar to each other, only several degrees different.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;The cea data has mis-orientated before 09/2013. We have the &lt;a href=&quot;https://wiki.ziyixi.science/static/i
+      
+    
+    </summary>
+    
+      <category term="Research note" scheme="wiki.ziyixi.science/categories/Research-note/"/>
+    
+    
+      <category term="cea" scheme="wiki.ziyixi.science/tags/cea/"/>
+    
+  </entry>
   
   <entry>
     <title>Comparision of different filters in preprocessing data</title>
