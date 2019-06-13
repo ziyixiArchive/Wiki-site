@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://wiki.ziyixi.science/static/figures/compare.png">
 <meta property="og:image" content="https://wiki.ziyixi.science/static/figures/waveform_compare.png">
-<meta property="og:updated_time" content="2019-06-13T20:15:55.604Z">
+<meta property="og:updated_time" content="2019-06-13T20:17:44.196Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Comparision of different filters in preprocessing data">
 <meta name="twitter:description" content="Filters In the seismic research, we have to preprocess the data. Specially in the field of FWI, we may have to compare the synthetics and the data, and then calculate the misfit function. Here I compa">
@@ -326,7 +326,7 @@
 <p>So here we will get the processed data with the frequency range of 40s to 100s.</p>
 <h3 id="taper-in-the-frequency-domain">Taper in the frequency domain</h3>
 <p>We can also directly get the final result as:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">r AH.DYN.BHZ.trim</span><br><span class="line">rmean; rtr; taper;</span><br><span class="line">trans from polezero s ./AH.DYN.BHZ.pz to none freq 0.008 0.01 0.0025 0.03</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">r AH.DYN.BHZ.trim</span><br><span class="line">rmean; rtr; taper;</span><br><span class="line">trans from polezero s ./AH.DYN.BHZ.pz to none freq 0.008 0.01 0.025 0.03</span><br></pre></td></tr></table></figure>
 <h2 id="result">Result</h2>
 <p>We can compare the result as: <img src="https://wiki.ziyixi.science/static/figures/compare.png"></p>
 <p>As we can see, the black line represents &quot;taper from 0.004HZ to 0.005HZ&quot; and then removing the instrumental response, while the blue line represents &quot;taper from 0.01HZ to 0.0025HZ&quot; and then removing the instrumental response. And the red line represnets apply a bandpass filter from 0.01HZ to 0.0025HZ to the black line.</p>
@@ -345,19 +345,10 @@
     
 <nav id="article-nav">
     
-        <a href="/wiki/SeisScript/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    SeisScript
-                
-            </div>
-        </a>
     
-    
-        <a href="/wiki/index/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/wiki/SeisScript/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">所思所想</div>
+            <div class="article-nav-title">SeisScript</div>
         </a>
     
 </nav>
