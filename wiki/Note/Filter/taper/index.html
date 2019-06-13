@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://wiki.ziyixi.science/static/figures/compare.png">
 <meta property="og:image" content="https://wiki.ziyixi.science/static/figures/waveform_compare.png">
-<meta property="og:updated_time" content="2019-06-13T19:50:32.921Z">
+<meta property="og:updated_time" content="2019-06-13T19:55:50.759Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Comparision of different filters in preprocessing data">
 <meta name="twitter:description" content="Filters In the seismic research, we have to preprocess the data. Specially in the field of FWI, we may have to compare the synthetics and the data, and then calculate the misfit function. Here I compa">
@@ -321,7 +321,7 @@
             <h2 id="filters">Filters</h2>
 <p>In the seismic research, we have to preprocess the data. Specially in the field of FWI, we may have to compare the synthetics and the data, and then calculate the misfit function. Here I compare two different way to get our desired frequency range.</p>
 <h3 id="bandpass">Bandpass</h3>
-<p>The data we have the <a href="https://wiki.ziyixi.science/static/data/AH.DYN.BHZ.trim">data</a> and the PZ file. And then we can use SAC to preprocess it:</p>
+<p>The data we have the <a href="https://wiki.ziyixi.science/static/data/AH.DYN.BHZ.trim">data</a> and the <a href="https://wiki.ziyixi.science/static/data/AH.DYN.BHZ.pz">PZ file</a>. And then we can use SAC to preprocess it:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">r AH.DYN.BHZ.trim</span><br><span class="line">rmean; rtr; taper;</span><br><span class="line">trans from polezero s ./AH.DYN.BHZ.pz to none freq 0.004 0.005 1 1.2</span><br><span class="line">bp n 2 p 2 c 0.01 0.0025</span><br></pre></td></tr></table></figure>
 <p>So here we will get the processed data with the frequency range of 40s to 100s.</p>
 <h3 id="taper-in-the-frequency-domain">Taper in the frequency domain</h3>
