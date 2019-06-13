@@ -2,8 +2,8 @@
 title: SeisScript
 toc: true
 date: 2019-06-11 17:07:03
-tags:
-categories:
+tags: FWI
+categories: FWI
 ---
 
 ## Overview
