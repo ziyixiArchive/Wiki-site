@@ -3,7 +3,7 @@ title: Comparision of different filters in preprocessing data
 toc: true
 date: 2019-06-11 17:07:03
 tags: filter
-categories: DSA
+categories: DSP
 ---
 
 ## Filters
