@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="wiki.ziyixi.science/"/>
-  <updated>2019-06-13T19:55:50.759Z</updated>
+  <updated>2019-06-13T20:15:27.967Z</updated>
   <id>wiki.ziyixi.science/</id>
   
   <author>
@@ -17,37 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Comparision of different filters in preprocessing data</title>
-    <link href="wiki.ziyixi.science/wiki/Note/Filter/taper/"/>
-    <id>wiki.ziyixi.science/wiki/Note/Filter/taper/</id>
-    <published>2019-06-11T21:07:03.000Z</published>
-    <updated>2019-06-13T19:55:50.759Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="filters">Filters</h2><p>In the seismic research, we have to preprocess the data. Specially in the field of FWI, we may have to compare the synthetics and the data, and then calculate the misfit function. Here I compare two different way to get our desired frequency range.</p><h3 id="bandpass">Bandpass</h3><p>The data we have the <a href="https://wiki.ziyixi.science/static/data/AH.DYN.BHZ.trim">data</a> and the <a href="https://wiki.ziyixi.science/static/data/AH.DYN.BHZ.pz">PZ file</a>. And then we can use SAC to preprocess it:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">r AH.DYN.BHZ.trim</span><br><span class="line">rmean; rtr; taper;</span><br><span class="line">trans from polezero s ./AH.DYN.BHZ.pz to none freq 0.004 0.005 1 1.2</span><br><span class="line">bp n 2 p 2 c 0.01 0.0025</span><br></pre></td></tr></table></figure><p>So here we will get the processed data with the frequency range of 40s to 100s.</p><h3 id="taper-in-the-frequency-domain">Taper in the frequency domain</h3><p>We can also directly get the final result as:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">r AH.DYN.BHZ.trim</span><br><span class="line">rmean; rtr; taper;</span><br><span class="line">trans from polezero s ./AH.DYN.BHZ.pz to none freq 0.008 0.01 0.0025 0.03</span><br></pre></td></tr></table></figure><h2 id="result">Result</h2><p>We can compare the result as: <img src="https://wiki.ziyixi.science/static/figures/compare.png"></p><p>As we can see, the black line represents &quot;taper from 0.004HZ to 0.005HZ&quot; and then removing the instrumental response, while the blue line represents &quot;taper from 0.01HZ to 0.0025HZ&quot; and then removing the instrumental response. And the red line represnets apply a bandpass filter from 0.01HZ to 0.0025HZ to the black line.</p><p>In FWI research, we want to keep as much as energy in our desired frequency band. So it seems the blue has not losed the energy, which is better then the red line. Also the blue line has almost the same amount of enery with the red line. However, there is an abrupt jump of the blue line, which may cause some artifact.</p><p><img src="https://wiki.ziyixi.science/static/figures/waveform_compare.png"></p><p>Look at part from 800s to 1000s. It seems the &quot;phases&quot; in the black line are the artifact, which may cause some problem for the comparision of the surface wave. Anyway, the behavior of sync and data outside our desired frequency range is somehow different.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;filters&quot;&gt;Filters&lt;/h2&gt;
-&lt;p&gt;In the seismic research, we have to preprocess the data. Specially in the field of FWI, we may have to comp
-      
-    
-    </summary>
-    
-      <category term="DSA" scheme="wiki.ziyixi.science/categories/DSA/"/>
-    
-    
-      <category term="filter" scheme="wiki.ziyixi.science/tags/filter/"/>
-    
-  </entry>
-  
-  <entry>
     <title>SeisScript</title>
-    <link href="wiki.ziyixi.science/wiki/Summary/FWI/SeisScript/"/>
-    <id>wiki.ziyixi.science/wiki/Summary/FWI/SeisScript/</id>
+    <link href="wiki.ziyixi.science/wiki/SeisScript/"/>
+    <id>wiki.ziyixi.science/wiki/SeisScript/</id>
     <published>2019-06-11T21:07:03.000Z</published>
-    <updated>2019-06-13T19:19:03.372Z</updated>
+    <updated>2019-06-13T20:15:27.967Z</updated>
     
     <content type="html"><![CDATA[<h2 id="overview">Overview</h2><p>Recently I have collected some of my research scripts into a package (or just a directory) named <a href="https://github.com/ziyixi/SeisScripts" rel="external nofollow noopener noreferrer" target="_blank">SeisScript</a>. This package is very useful for the need of full waveform inversion in the study of seismology. Here I'd like to introduce different parts.</p><h2 id="specfem_helper.jl">specfem_helper.jl</h2><p>At the moment, this package contains two different usable programs. (and more usable functions!) They are all inside the src/program subdirectory. Before using them, we may have to enter the <code>fortran</code> directory to run <code>julia compile.jl</code> to compile two fortran files into the dynamic library so that we can use <code>ccall</code> to call them. (I can write them in pure Julia, but I'm pretty lazy.) Also we have to edit <code>setting/constants.jl</code> to edit <code>ANGULAR_WIDTH_XI_IN_DEGREES_VAL</code>, <code>ANGULAR_WIDTH_ETA_IN_DEGREES_VAL</code>, <code>NEX_XI_VAL</code> and <code>NEX_ETA_VAL</code>.</p><p>The first program is named as <code>xsem_interp_mesh2.jl</code>, direcctly adapted from <a href="https://github.com/taotaokai/sem_utils/blob/master/src/program/xsem_interp_mesh2.f90" rel="external nofollow noopener noreferrer" target="_blank">Tao Kai's code</a>. But I have used some packages directly from Julia which makes the code more neat and more beautiful. According to my test, this program will have the same result with Tao's code, but three time slower. (That's reasonable, since Julia seems to be slower than Fortran, but I'm planning to precompile some parts to make it faster.)</p><p>The second program is named as <code>get_cross_section_data.jl</code>. This program is mainly used to calculated the point values along a specific profile of the GLL model. Previously we have a <a href="https://github.com/geokid/specfem3D_visualization/tree/master/create_slice_xyz" rel="external nofollow noopener noreferrer" target="_blank">script</a> which is designed to find the nearest points along the interface of the profile. This method is somehow not accurate. So I'm using the interpolation to calculate the values. Comparing with the previous code, this program runs faster and uses less computing resources.</p>]]></content>
     
@@ -65,6 +39,32 @@
     
     
       <category term="FWI" scheme="wiki.ziyixi.science/tags/FWI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Comparision of different filters in preprocessing data</title>
+    <link href="wiki.ziyixi.science/wiki/taper/"/>
+    <id>wiki.ziyixi.science/wiki/taper/</id>
+    <published>2019-06-11T21:07:03.000Z</published>
+    <updated>2019-06-13T20:15:55.604Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="filters">Filters</h2><p>In the seismic research, we have to preprocess the data. Specially in the field of FWI, we may have to compare the synthetics and the data, and then calculate the misfit function. Here I compare two different way to get our desired frequency range.</p><h3 id="bandpass">Bandpass</h3><p>The data we have the <a href="https://wiki.ziyixi.science/static/data/AH.DYN.BHZ.trim">data</a> and the <a href="https://wiki.ziyixi.science/static/data/AH.DYN.BHZ.pz">PZ file</a>. And then we can use SAC to preprocess it:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">r AH.DYN.BHZ.trim</span><br><span class="line">rmean; rtr; taper;</span><br><span class="line">trans from polezero s ./AH.DYN.BHZ.pz to none freq 0.004 0.005 1 1.2</span><br><span class="line">bp n 2 p 2 c 0.01 0.0025</span><br></pre></td></tr></table></figure><p>So here we will get the processed data with the frequency range of 40s to 100s.</p><h3 id="taper-in-the-frequency-domain">Taper in the frequency domain</h3><p>We can also directly get the final result as:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">r AH.DYN.BHZ.trim</span><br><span class="line">rmean; rtr; taper;</span><br><span class="line">trans from polezero s ./AH.DYN.BHZ.pz to none freq 0.008 0.01 0.0025 0.03</span><br></pre></td></tr></table></figure><h2 id="result">Result</h2><p>We can compare the result as: <img src="https://wiki.ziyixi.science/static/figures/compare.png"></p><p>As we can see, the black line represents &quot;taper from 0.004HZ to 0.005HZ&quot; and then removing the instrumental response, while the blue line represents &quot;taper from 0.01HZ to 0.0025HZ&quot; and then removing the instrumental response. And the red line represnets apply a bandpass filter from 0.01HZ to 0.0025HZ to the black line.</p><p>In FWI research, we want to keep as much as energy in our desired frequency band. So it seems the blue has not losed the energy, which is better then the red line. Also the blue line has almost the same amount of enery with the red line. However, there is an abrupt jump of the blue line, which may cause some artifact.</p><p><img src="https://wiki.ziyixi.science/static/figures/waveform_compare.png"></p><p>Look at part from 800s to 1000s. It seems the &quot;phases&quot; in the black line are the artifact, which may cause some problem for the comparision of the surface wave. Anyway, the behavior of sync and data outside our desired frequency range is somehow different.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;filters&quot;&gt;Filters&lt;/h2&gt;
+&lt;p&gt;In the seismic research, we have to preprocess the data. Specially in the field of FWI, we may have to comp
+      
+    
+    </summary>
+    
+      <category term="DSP" scheme="wiki.ziyixi.science/categories/DSP/"/>
+    
+    
+      <category term="filter" scheme="wiki.ziyixi.science/tags/filter/"/>
     
   </entry>
   
