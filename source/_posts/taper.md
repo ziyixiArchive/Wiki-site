@@ -30,7 +30,7 @@ We can also directly get the final result as:
 ```bash
 r AH.DYN.BHZ.trim
 rmean; rtr; taper;
-trans from polezero s ./AH.DYN.BHZ.pz to none freq 0.008 0.01 0.0025 0.03
+trans from polezero s ./AH.DYN.BHZ.pz to none freq 0.008 0.01 0.025 0.03
 ```
 
 ## Result
