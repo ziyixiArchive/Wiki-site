@@ -12,7 +12,7 @@ In the seismic research, we have to preprocess the data. Specially in the field 
 
 ### Bandpass
 
-The data we have the [data](https://wiki.ziyixi.science/static/data/AH.DYN.BHZ.trim) and the PZ file. And then we can use SAC to preprocess it:
+The data we have the [data](https://wiki.ziyixi.science/static/data/AH.DYN.BHZ.trim) and the [PZ file](https://wiki.ziyixi.science/static/data/AH.DYN.BHZ.pz). And then we can use SAC to preprocess it:
 
 ```bash
 r AH.DYN.BHZ.trim
