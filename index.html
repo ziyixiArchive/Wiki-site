@@ -207,7 +207,7 @@
                             &nbsp;
                             所思所想
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/index/">未来职业规划</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/future_plan1/">未来职业规划</a></li>  </ul> 
                     </li> 
                      </ul> 
     </div>
@@ -281,7 +281,601 @@
 </aside>
             
             <section id="main">
-    <article id="post-index" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-files-in-hpcc" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/hpcc/">hpcc</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/stampede2-icer/">stampede2,icer</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/files-in-hpcc/">
+            <time datetime="2019-07-16T14:17:46.000Z" itemprop="datePublished">2019-07-16</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/raw/master/source/_posts/files-in-hpcc.md" rel="external nofollow noopener noreferrer" target="_blank"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/edit/master/source/_posts/files-in-hpcc.md" rel="external nofollow noopener noreferrer" target="_blank"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/commits/master/source/_posts/files-in-hpcc.md" rel="external nofollow noopener noreferrer" target="_blank"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/files-in-hpcc/">Files in ICER and Stampede2</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="overview">Overview</h2>
+<p>Managing files in ICER and STAMPEDE2 is a important and I am supposed to find a way to place my files in order. That the reason why I write this wiki.</p>
+<h2 id="the-summary-of-the-storage-space">The summary of the storage space</h2>
+<p>In ICER, we have these four &quot;disks&quot;: (directly copied) <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Home Directory:</span><br><span class="line">---------------------------------------------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">/mnt/home/xiziyi                Quota          Used           Free           Files Quota    Files Used     Files Free</span><br><span class="line">                                1024G          251G           773G           1048576        988008         60568</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Research Groups:                Space          Space          Space          Files          Files          Files</span><br><span class="line">                                Quota          Used           Available      Quota          Used           Available</span><br><span class="line">------------------------------------------------------------------------------------------------------------------</span><br><span class="line">seismolab2                      16384G         10797G         5587G          26214400       24725040       1489360</span><br><span class="line"></span><br><span class="line">Temporary Filesystems:</span><br><span class="line">---------------------------------------------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">/mnt/ls15 (legacy scratch)      Inodes Used     Quota           Free</span><br><span class="line">                                115170          1000000         884830</span><br><span class="line">/mnt/scratch (/mnt/gs18)        Space Quota    Space Used     Space Free     Filess Quota   Files Used     Files Free</span><br><span class="line">                                51200G         340G           50860G         1048576        71699          976877</span><br></pre></td></tr></table></figure></p>
+<p>And in stampede2, we have: <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">--------------------- Project balances <span class="keyword">for</span> user tg851791 ----------------------</span><br><span class="line">| Name           Avail SUs     Expires | Name           Avail SUs     Expires |</span><br><span class="line">| TG-EAR140030       31763  2019-09-30 | TG-EAR130011       87905  2019-09-30 |</span><br><span class="line">------------------------ Disk quotas <span class="keyword">for</span> user tg851791 ------------------------</span><br><span class="line">| Disk         Usage (GB)     Limit    %Used   File Usage       Limit   %Used |</span><br><span class="line">| /home1              2.0      10.0    19.52        46696      200000   23.35 |</span><br><span class="line">| /work             807.4    1024.0    78.85      2742645     3000000   91.42 |</span><br><span class="line">| /scratch        23904.2       0.0     0.00     11820127           0    0.00 |</span><br><span class="line">-------------------------------------------------------------------------------</span><br></pre></td></tr></table></figure></p>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="/wiki/files-in-hpcc/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-buy-car" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/life/">life</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/cars/">cars</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/buy-car/">
+            <time datetime="2019-06-16T14:35:45.000Z" itemprop="datePublished">2019-06-16</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/raw/master/source/_posts/buy-car.md" rel="external nofollow noopener noreferrer" target="_blank"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/edit/master/source/_posts/buy-car.md" rel="external nofollow noopener noreferrer" target="_blank"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/commits/master/source/_posts/buy-car.md" rel="external nofollow noopener noreferrer" target="_blank"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/buy-car/">汽车购买</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+            
+        
+        
+            <h2 id="买车网站">买车网站</h2>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-lasif-specfem" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/FWI/">FWI</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/FWI/">FWI</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/lasif-specfem/">
+            <time datetime="2019-06-14T14:46:24.000Z" itemprop="datePublished">2019-06-14</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/raw/master/source/_posts/lasif-specfem.md" rel="external nofollow noopener noreferrer" target="_blank"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/edit/master/source/_posts/lasif-specfem.md" rel="external nofollow noopener noreferrer" target="_blank"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/commits/master/source/_posts/lasif-specfem.md" rel="external nofollow noopener noreferrer" target="_blank"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/lasif-specfem/">lasif_specfem</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+            
+        
+        
+            <h2 id="overview">Overview</h2>
+<p>I'm planning to build a package named LASIF_Specfem. This package aims to create a command line tool to manage the usage of Specfem-globe. As we know that Specfem is kind of complex, and rewrite it to the structure of what a modern software should look like is difficult and complex. But anyway, we can write a python interface to it. According to <a href="https://github.com/dirkphilip/LASIF_2.0" rel="external nofollow noopener noreferrer" target="_blank">LASIF_2.0</a>, we can use directory structures to manage our data, synthetics and more.</p>
+<p>There have already been some tools, but the problem is that these tools have some default setting which instructs you each steps. Since the scientific research is really flexble, such a restriction is not tolerable. So I'm planning to use &quot;plugins&quot; to solve this problem. The package LASIF_Specfem will only contain prototypes and set up the directory structure, and users can implement their own plugins following some interfaces.</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-correct-cea-orientation" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Research-note/">Research note</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/cea/">cea</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/correct-cea-orientation/">
+            <time datetime="2019-06-13T21:00:07.000Z" itemprop="datePublished">2019-06-13</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/raw/master/source/_posts/correct-cea-orientation.md" rel="external nofollow noopener noreferrer" target="_blank"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/edit/master/source/_posts/correct-cea-orientation.md" rel="external nofollow noopener noreferrer" target="_blank"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/commits/master/source/_posts/correct-cea-orientation.md" rel="external nofollow noopener noreferrer" target="_blank"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/correct-cea-orientation/">correct_cea_orientation</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="overview">Overview</h2>
+<p>The cea data has mis-orientated before 09/2013. We have the <a href="https://wiki.ziyixi.science/static/info/cmpaz_segment.txt">document</a> of how these stations are mis-orientated. (From Prof. Kai Tao and by Prof. Fenglin Niu) Dr. Chen has some data that have been processed before. So I'd like to compare the cmpaz of her processed data and the document mentioned above.</p>
+<h2 id="result">Result</h2>
+<p>The data from the document has the form</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#NET|STA|NO.EVENT|MEAN|STD|MEDIAN|MAD|STARTTIME|ENDTIME</span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="/wiki/correct-cea-orientation/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-SeisScript" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/FWI/">FWI</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/FWI/">FWI</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/SeisScript/">
+            <time datetime="2019-06-11T21:07:03.000Z" itemprop="datePublished">2019-06-11</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/raw/master/source/_posts/SeisScript.md" rel="external nofollow noopener noreferrer" target="_blank"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/edit/master/source/_posts/SeisScript.md" rel="external nofollow noopener noreferrer" target="_blank"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/commits/master/source/_posts/SeisScript.md" rel="external nofollow noopener noreferrer" target="_blank"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/SeisScript/">SeisScript</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="overview">Overview</h2>
+<p>Recently I have collected some of my research scripts into a package (or just a directory) named <a href="https://github.com/ziyixi/SeisScripts" rel="external nofollow noopener noreferrer" target="_blank">SeisScript</a>. This package is very useful for the need of full waveform inversion in the study of seismology. Here I'd like to introduce different parts.</p>
+<h2 id="specfem_helper.jl">specfem_helper.jl</h2>
+<p>At the moment, this package contains two different usable programs. (and more usable functions!) They are all inside the src/program subdirectory. Before using them, we may have to enter the <code>fortran</code> directory to run <code>julia compile.jl</code> to compile two fortran files into the dynamic library so that we can use <code>ccall</code> to call them. (I can write them in pure Julia, but I'm pretty lazy.) Also we have to edit <code>setting/constants.jl</code> to edit <code>ANGULAR_WIDTH_XI_IN_DEGREES_VAL</code>, <code>ANGULAR_WIDTH_ETA_IN_DEGREES_VAL</code>, <code>NEX_XI_VAL</code> and <code>NEX_ETA_VAL</code>.</p>
+<p>The first program is named as <code>xsem_interp_mesh2.jl</code>, direcctly adapted from <a href="https://github.com/taotaokai/sem_utils/blob/master/src/program/xsem_interp_mesh2.f90" rel="external nofollow noopener noreferrer" target="_blank">Tao Kai's code</a>. But I have used some packages directly from Julia which makes the code more neat and more beautiful. According to my test, this program will have the same result with Tao's code, but three time slower. (That's reasonable, since Julia seems to be slower than Fortran, but I'm planning to precompile some parts to make it faster.)</p>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="/wiki/SeisScript/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-taper" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/DSP/">DSP</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/filter/">filter</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/taper/">
+            <time datetime="2019-06-11T21:07:03.000Z" itemprop="datePublished">2019-06-11</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/raw/master/source/_posts/taper.md" rel="external nofollow noopener noreferrer" target="_blank"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/edit/master/source/_posts/taper.md" rel="external nofollow noopener noreferrer" target="_blank"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/commits/master/source/_posts/taper.md" rel="external nofollow noopener noreferrer" target="_blank"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/taper/">Comparision of different filters in preprocessing data</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="filters">Filters</h2>
+<p>In the seismic research, we have to preprocess the data. Specially in the field of FWI, we may have to compare the synthetics and the data, and then calculate the misfit function. Here I compare two different way to get our desired frequency range.</p>
+<h3 id="bandpass">Bandpass</h3>
+<p>The data we have the <a href="https://wiki.ziyixi.science/static/data/AH.DYN.BHZ.trim">data</a> and the <a href="https://wiki.ziyixi.science/static/data/AH.DYN.BHZ.pz">PZ file</a>. And then we can use SAC to preprocess it:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">r AH.DYN.BHZ.trim</span><br><span class="line">rmean; rtr; taper;</span><br><span class="line">trans from polezero s ./AH.DYN.BHZ.pz to none freq 0.004 0.005 1 1.2</span><br><span class="line">bp n 2 p 2 c 0.01 0.0025</span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="/wiki/taper/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-future_plan1" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -298,7 +892,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/index/">
+        <a href="/wiki/future_plan1/">
             <time datetime="2019-06-11T18:49:41.000Z" itemprop="datePublished">2019-06-11</time>
         </a>
     </div>
@@ -310,21 +904,21 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href="https://github.com/ziyixi/Wiki-site/raw/master/source/_posts/index.md" rel="external nofollow noopener noreferrer" target="_blank"> Source </a>
+                                <a href="https://github.com/ziyixi/Wiki-site/raw/master/source/_posts/future_plan1.md" rel="external nofollow noopener noreferrer" target="_blank"> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href="https://github.com/ziyixi/Wiki-site/edit/master/source/_posts/index.md" rel="external nofollow noopener noreferrer" target="_blank"> Edit </a>
+                                <a href="https://github.com/ziyixi/Wiki-site/edit/master/source/_posts/future_plan1.md" rel="external nofollow noopener noreferrer" target="_blank"> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href="https://github.com/ziyixi/Wiki-site/commits/master/source/_posts/index.md" rel="external nofollow noopener noreferrer" target="_blank"> History </a>
+                                <a href="https://github.com/ziyixi/Wiki-site/commits/master/source/_posts/future_plan1.md" rel="external nofollow noopener noreferrer" target="_blank"> History </a>
                             </div>
                         
                     </div>
                 
                 
     
-        <h1 class="article-title" itemprop="name">
-            未来职业规划
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/future_plan1/">未来职业规划</a>
         </h1>
     
 
@@ -335,40 +929,38 @@
         
         
             
-                <div id="toc" class="toc-article">
-                <strong class="toc-title">Catalogue</strong>
+                
+                
                     
-                </div>
-            
-        
-        
-            <p>谈到我自己的未来职业规划，我这里有一些比较初步的想法。</p>
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><p>谈到我自己的未来职业规划，我这里有一些比较初步的想法。</p>
 <p>首先的一个关键问题在于我今后应该从事学术界的工作还是工业界的工作，这一点非常重要。从我本科时候的经历来看，要想在每一个人生阶段结束的时候达到一个更好的位置，就应该提早做准备。（譬如我自己出国这件事情其实是在大三下学期才开始正式开始准备的，这一点无疑成为我申请时候的劣势）此外我们还应该明白在每一阶段自己的核心竞争力是什么。在 PhD 阶段，我个人认为还是要着眼于科研。第一点在于做了些什么东西，即所做工作的数量。内行毕竟是少数，别人评价自己都要从一些标准的评价手段来看。（主要是发了些什么文章，在什么样的期刊上发了文章。）其次是所做的领域。（是否代表了学科的发展方向，是否具有真正的价值。）最后是所做工作的延伸性。（如何为自己创造更多的机会。）</p>
 <p>回顾我现在所做的事情，大约在今年结束之前能把模型计算出来，在明年暑假之前文章应该可以发表。我自己所做的另一个算法方面的工作，我预计是能发一篇比较小的 paper。所以在前两年（或者三年），我应该能有两篇一作文章到手。再加上蹭师兄的两篇二作文章，我在前两年就会有四篇文章。从文章数目来看，我觉得似乎还是可以的。但是考虑到自己学校的问题，MSU 毕竟不能为我找工作提供助力。如果我想在国内找工作的话，所能凭借的有如下几点：教育背景：科大毕业，海外 PhD。学科背景：理科专业，cs dual，HPC 相关。我个人觉得这些条件应该能让我达到各大企业的基本入门要求，所以从这一点来看找工业界的工作还是有一些机会的。</p>
 <p>如果我要从事学术界的工作的话，首先一点在于学术界的内卷现象。虽然说如果自己有比较好的 publication 的话，还是比较有希望在 PhD 毕业的时候找到一个比较好的博后位置，以至于再走教职的常规路线。理论上讲我是能走这条路的，而且走这条路的各个时期所要做的事情都是可以预期的。可是走这条路的一个大问题在于竞争激烈。不用脑子想我也知道业界待遇和职位数额要远远大于学术界。从我的观点来看，不转行的一部分在于确实拥有着远大的学术理想。但是更多的我觉得是不能跳出自己的舒适区。而从我个人发展的角度来看，我或者从我个人的兴趣来看，我其实还是比较喜欢做一些基础性的 coding 工作的，而且经过一直以来对学术界和业界的对比来看，我觉得业界还是更能实现我个人价值的地方。</p>
 <p>如果从事业界工作，什么能力是我需要具备的？</p>
-<ol type="1">
-<li><p>基础知识。cs 本科很多东西我都是水水而过，我个人觉得还需要加强。此外现在做 cs 相关工作，还有很多知识需要加以补充，具体而言，我觉得有如下事情需要去做：</p>
-<ol type="1">
-<li>离散数学。Rosen_Discrete_Mathematics_and_Its_Applications_7th_Edition</li>
-<li>算法。 算法导论</li>
-<li>C++。cpp 是编程的基本功，不是学学 py 或者 Julia 能够取代的。而且自然我应该重读一下 C++ primer。</li>
-<li>操作系统。这一科我建议直接阅读 computer systems 一书。我觉得可以和计算机系统一课合并。</li>
-<li>数据库。 直接学习 SQL 学习指南这一动物书。</li>
-<li>计算机网络。 这一科其实我不是非常喜欢，暂且扔掉。</li>
-<li>编译原理。 学习 engineering a compiler 一书。</li>
-<li>综上所述，我一共需要阅读六本书。因为我之前有 cs 的基础，所以除了算法导论一书外我觉得其余的书都可以在一个月内读完。算法导论需要阅读两到三个月之间。</li>
-</ol></li>
-<li>进阶知识。我希望从事的方向是偏向机器学习的高性能计算方面的工作，比如设计 GPU 算法之类的活。我自认为我在这一方面是比较有学习优势的。这就要求我在机器学习和高性能计算方面两手抓。
-<ol type="1">
-<li>GPU 基础知识。我需要知道如何使用 GPU，也需要知道其底层的原理。甚至对于 tpu 的相关知识，我也应该加以学习。我觉得可以阅读 Programming massively parallel processors: A hands-on approach 一书。</li>
-<li>CUDA 编程。我希望熟练掌握 c++，py 和 Julia 的 CUDA 编程。暂且阅读 CUDA C programming 一书。</li>
-<li>学习“系统研究背景：操作系统、移动计算、边缘计算、分布式系统、硬件等”。这个日后详谈。</li>
-<li>学习数电与 FPGA。</li>
-</ol></li>
-</ol>
-<p>Anyway，我需要每天确保一定的学习时间，以便在明年暑假实习的时候达到应有的 cs 科班水平。此外应当关注科大的微软亚洲研究院的教授，以便参加 MSRA 的暑假实习。</p>
-
+<p>
+                
+            
+        
+        
+            </p></div>   
+            <div class="article-more-link">
+                <a href="/wiki/future_plan1/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
@@ -377,37 +969,11 @@
 </article>
 
 
-    
-<nav id="article-nav">
-    
-        <a href="/wiki/taper/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    Comparision of different filters in preprocessing data
-                
-            </div>
-        </a>
-    
-    
-</nav>
-
 
 
 
 
     
-    
-
-
-
-
-<!-- baidu url auto push script -->
-<script type="text/javascript">
-    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
-</script>     
-
-
 </section>
         </div>
         <footer id="footer">
