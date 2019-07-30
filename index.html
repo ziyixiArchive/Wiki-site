@@ -205,9 +205,9 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            所思所想
+                            specfem
                         </a>
-                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/future_plan1/">未来职业规划</a></li>  </ul> 
+                         <ul class="unstyled" id="tree">  <li class="file"><a href="/wiki/note-specfem/">Some notes on Specfem3D</a></li>  </ul> 
                     </li> 
                      </ul> 
     </div>
@@ -281,6 +281,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-note-specfem" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/specfem/">specfem</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/specfem/">specfem</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/note-specfem/">
+            <time datetime="2019-07-22T14:41:23.000Z" itemprop="datePublished">2019-07-22</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/raw/master/source/_posts/note-specfem.md" rel="external nofollow noopener noreferrer" target="_blank"> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/edit/master/source/_posts/note-specfem.md" rel="external nofollow noopener noreferrer" target="_blank"> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href="https://github.com/ziyixi/Wiki-site/commits/master/source/_posts/note-specfem.md" rel="external nofollow noopener noreferrer" target="_blank"> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/note-specfem/">Some notes on Specfem3D</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p></p><h2 id="some-bugs-i-find">Some bugs I find</h2>
+<ol type="1">
+<li><p>The newer version(7.0.2) hasn't enabled USE_FULL_TISO_MANTLE by default. We should turn it on.</p></li>
+<li><p>Find a bug in Specfem3D-globe(v7.0.0) about writing to the ASDF format. In write_specfem_adios_header.F90, line 53, we should remove “NSOURCES” as this object has been declared by the module shared_parameters in line 48.</p></li>
+<li><p>Find a bug in Specfem3D-globe(v7.0.0). We should change Adios_manager.f90:line58: adios_allocate_buffer (ADIOS_BUFFER_SIZE_IN_MB, adios_err) to adios_set_max_buffer_size(ADIOS_BUFFER_SIZE_IN_MB)</p></li>
+<p>
+                
+            
+        
+        
+            </p></ol></div>   
+            <div class="article-more-link">
+                <a href="/wiki/note-specfem/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-files-in-hpcc" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -862,105 +966,6 @@
             </p></div>   
             <div class="article-more-link">
                 <a href="/wiki/taper/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-future_plan1" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/所思所想/">所思所想</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/future_plan1/">
-            <time datetime="2019-06-11T18:49:41.000Z" itemprop="datePublished">2019-06-11</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href="https://github.com/ziyixi/Wiki-site/raw/master/source/_posts/future_plan1.md" rel="external nofollow noopener noreferrer" target="_blank"> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/ziyixi/Wiki-site/edit/master/source/_posts/future_plan1.md" rel="external nofollow noopener noreferrer" target="_blank"> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href="https://github.com/ziyixi/Wiki-site/commits/master/source/_posts/future_plan1.md" rel="external nofollow noopener noreferrer" target="_blank"> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/future_plan1/">未来职业规划</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p></p><p>谈到我自己的未来职业规划，我这里有一些比较初步的想法。</p>
-<p>首先的一个关键问题在于我今后应该从事学术界的工作还是工业界的工作，这一点非常重要。从我本科时候的经历来看，要想在每一个人生阶段结束的时候达到一个更好的位置，就应该提早做准备。（譬如我自己出国这件事情其实是在大三下学期才开始正式开始准备的，这一点无疑成为我申请时候的劣势）此外我们还应该明白在每一阶段自己的核心竞争力是什么。在 PhD 阶段，我个人认为还是要着眼于科研。第一点在于做了些什么东西，即所做工作的数量。内行毕竟是少数，别人评价自己都要从一些标准的评价手段来看。（主要是发了些什么文章，在什么样的期刊上发了文章。）其次是所做的领域。（是否代表了学科的发展方向，是否具有真正的价值。）最后是所做工作的延伸性。（如何为自己创造更多的机会。）</p>
-<p>回顾我现在所做的事情，大约在今年结束之前能把模型计算出来，在明年暑假之前文章应该可以发表。我自己所做的另一个算法方面的工作，我预计是能发一篇比较小的 paper。所以在前两年（或者三年），我应该能有两篇一作文章到手。再加上蹭师兄的两篇二作文章，我在前两年就会有四篇文章。从文章数目来看，我觉得似乎还是可以的。但是考虑到自己学校的问题，MSU 毕竟不能为我找工作提供助力。如果我想在国内找工作的话，所能凭借的有如下几点：教育背景：科大毕业，海外 PhD。学科背景：理科专业，cs dual，HPC 相关。我个人觉得这些条件应该能让我达到各大企业的基本入门要求，所以从这一点来看找工业界的工作还是有一些机会的。</p>
-<p>如果我要从事学术界的工作的话，首先一点在于学术界的内卷现象。虽然说如果自己有比较好的 publication 的话，还是比较有希望在 PhD 毕业的时候找到一个比较好的博后位置，以至于再走教职的常规路线。理论上讲我是能走这条路的，而且走这条路的各个时期所要做的事情都是可以预期的。可是走这条路的一个大问题在于竞争激烈。不用脑子想我也知道业界待遇和职位数额要远远大于学术界。从我的观点来看，不转行的一部分在于确实拥有着远大的学术理想。但是更多的我觉得是不能跳出自己的舒适区。而从我个人发展的角度来看，我或者从我个人的兴趣来看，我其实还是比较喜欢做一些基础性的 coding 工作的，而且经过一直以来对学术界和业界的对比来看，我觉得业界还是更能实现我个人价值的地方。</p>
-<p>如果从事业界工作，什么能力是我需要具备的？</p>
-<p>
-                
-            
-        
-        
-            </p></div>   
-            <div class="article-more-link">
-                <a href="/wiki/future_plan1/#more">Read More</a>
             </div>
         
         <footer class="article-footer">
