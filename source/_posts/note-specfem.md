@@ -23,3 +23,6 @@ categories: specfem
 1. [A GMT script to plot cross section](https://github.com/geodynamics/specfem3d_globe/commit/3f0596bfb1a643b1a78b3bb999a91720922b5d00)
 
 2. [The flag to set the tiso range](https://github.com/geodynamics/specfem3d_globe/commit/f0ccd5d880c6ea7a0a86dd20899769309b9148c4)
+
+3. [Directly set Crust in the Parfile](https://github.com/geodynamics/specfem3d_globe/commit/1bdd5b6e7d7a3be59a95afe898c58804868b99bf)
+
